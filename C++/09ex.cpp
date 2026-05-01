@@ -1,11 +1,11 @@
 /*
 * Instituição: EtecVAV - Vasco Antonio Vechiarutti
 *
-* Arquivo: 09ex.cpp
+* Arquivo: 09ex_fixed.cpp
 * Data: 01/05/2026
 * Autor: Felipe Barbosa Santos
-* Descrição: 
-* Ler um número entre 50 e 100. 
+* Descrição:
+* Ler um número entre 50 e 100.
 * Exibir a sequência de Fibonacci até esse número.
 */
 
@@ -13,23 +13,25 @@
 using namespace std;
 
 int main() {
-    
-    int n1 = 0, n2 = 1, res, n;
-    
-    cout << "Digite um número entre 50 a 100: ";
-    cin >> n;
-      if (n < 50 || n > 100) {
-        cout << "Número inválido!";
+    int limit;
+
+    cout << "Enter a number between 50 and 100: ";
+    cin >> limit;
+
+    if (limit < 50 || limit > 100) {
+        cout << "Invalid number!" << endl;
         return 0;
     }
-    cout << n1 << " " << n2;
-    res = n1 + n2;
-    while (res <= n) {
-        cout << res << " " << "";
-        n1 = n2;
-        n2 = res;
-        res = n1 + n2;
+
+    int prev = 0, curr = 1, next;
+
+    while (prev <= limit) {
+        cout << prev << " ";
+        next = prev + curr;
+        prev = curr;
+        curr = next;
     }
-    
+
+    cout << endl;
     return 0;
 }
